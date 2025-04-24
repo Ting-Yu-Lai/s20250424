@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>taiwan Food</title>
+    <style>
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            max-width: 400px;
+            width: 80%;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .modal-content button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .modal-content button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            margin: auto; 
+            width: 80%;
+            border-collapse: collapse;
+            /* border: 1px solid black; */
+            text-align: center;
+        }
+
+        table img {
+            height:300px;
+            width: auto;
+        }
+        
+        .input-box {
+            display: none; /* 預設隱藏 */
+            margin-top: 10px;
+        }
+        .input-box.show {
+            display: block; /* 點擊後顯示 */
+        }
+    </style>
+</head>
+<body>
+    <div id="modal" class="modal-overlay">
+        <div class="modal-content">
+            <img src="./image/統神.gif" alt="italymeme">
+            <button onclick="closeModal()">🍲</button>
+        </div>
+    </div>
+    <h1>Taiwan Food</h1>
+    <table>
+        <tr>
+            <td>牛肉麵</td>
+            <td><img src="./image/taiwanfood/beef.jpg"></td>
+        </tr>
+        <tr>
+            <td>波霸珍珠奶茶</td>
+            <td><img src="./image/taiwanfood/tea.jpg" onclick="showInput()"></td>
+            <div class="input-box" id="inputBox">
+                <input type="text" id="userInput" placeholder="請輸入我珍珠奶茶只點波霸" >
+                <button onclick="submitInput()">我不是被迫要發送</button>
+            </div>
+        </tr>
+        <tr>
+            <td>小籠包</td>
+            <td><img src="./image/taiwanfood/boa.jpg"></td>
+        </tr>
+    </table>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('modal').style.display = 'flex';
+        };
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function showInput() {
+            const inputBox = document.getElementById('inputBox');
+            inputBox.classList.toggle('show');
+            alert("請輸入我珍珠奶茶只點波霸")
+        }
+
+        // 處理使用者輸入
+        function submitInput() {
+            const userInput = document.getElementById('userInput').value;
+        }
+    </script>
+</body>
+</html>
